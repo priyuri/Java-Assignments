@@ -1,7 +1,7 @@
 import java.util.*;
 public class Assignment3 {
     //leetcode problem sumofmultiples
-    
+
     public static int sumOfMultiple(int n){
         int sum=0;
         for(int i=1; i<=n; i++){
@@ -40,7 +40,7 @@ public class Assignment3 {
         System.out.println("Sum of even numbers: "+sumEven);
         System.out.println("Sum of odd numbers: "+sumOdd);
 
-        // Write a program to find the factorialof any number entered by the user
+        // Write a program to find the factorial of any number entered by the user
 
         System.out.print("Enter the number: ");
         int number = sc.nextInt();
