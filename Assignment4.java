@@ -1,6 +1,49 @@
+import java.util.Scanner;
+
 public class Assignment4 {
+
+    public static void printPattern(int num3){
+        for(int i=1; i<=num3; i++){
+            // for incr order
+            for(int j=1; j<=i; j++){
+                System.out.print(j);
+            }
+            // for decr order
+            for(int k=i-1; k>=1; k--){
+                System.out.print(k);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printPattern2(int num1){
+        for(int i=num1; i>=1; i--){
+            for(int j=num1; j>=i; j-- ){
+                System.out.print(j);
+            }
+            for(int k=i+1; k<=num1; k++){
+                System.out.print(k);
+            }
+            System.out.println();
+        }
+    }
+
+    public static void printPattern3(int num2){
+        for(int i=1; i<=num2; i++){
+            for(int j=i; j>=1; j--){
+                System.out.print(j);
+            }
+            for(int k=2; k<=i; k++){
+                System.out.print(k);
+            }
+            System.out.println();
+        }
+    }
+
+
     public static void main(String[] args) {
         // inverted pattern
+        
         int n = 4;
         for (int i = n; i >= 1; i--) {
             for (int j = 1; j <= i; j++) {
@@ -160,7 +203,21 @@ public class Assignment4 {
                 }
             }
             System.out.println();
-        }
+        } 
+
+        //problem 13
+
+        Scanner sc = new Scanner(System.in);
+        int num3 = sc.nextInt();
+        printPattern(num3);
+
+        int num1 = sc.nextInt();
+        printPattern2(num1);
+
+        int num2 = sc.nextInt();
+        printPattern3(num2);
+
+
 
     }
 }
