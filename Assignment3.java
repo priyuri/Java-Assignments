@@ -16,6 +16,7 @@ public class Assignment3 {
     public static void main(String[] args) {
         int n = 9;
         System.out.println(sumOfMultiple(n));
+        
         // Write a program that reads a set of integers , and then prints the sum of the even and odd integers.
 
         Scanner sc = new Scanner(System.in);
