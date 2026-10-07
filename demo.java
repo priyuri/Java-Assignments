@@ -1,22 +1,30 @@
 import java.util.*;
-
 public class demo {
-    static  boolean  arraySortedOrNot(int[] arr, int n) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            if(arr[i]>arr[i+1]){
-                return false;
+    public static int binarySearch(int[] arr , int target){
+        int si = 0;
+        int ei = arr.length-1;
+        while(si <= ei){
+            int mid = si + (ei-si) / 2;
+            if(arr[mid] == target){
+                return mid;
+            }
+            if(arr[mid] < target){
+                si = mid+1;
+            }else{
+                ei = mid-1;
             }
         }
-        return true;
+        return -1;
+
 
     }
-    
 
     public static void main(String args[]) {
-        int[] arr = {1,2,3,4,5,1};
-        int n = 5;
-        System.out.println(arraySortedOrNot(arr, n));
-        
+        int[] arr = {2,4,8,17,20};
+        int target =1;
+        int Idx = binarySearch(arr, target);
+        System.out.println(Idx);
+
 
     }
 }
