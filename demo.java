@@ -1,30 +1,69 @@
 import java.util.*;
+
 public class demo {
-    public static int binarySearch(int[] arr , int target){
-        int si = 0;
-        int ei = arr.length-1;
-        while(si <= ei){
-            int mid = si + (ei-si) / 2;
-            if(arr[mid] == target){
-                return mid;
-            }
-            if(arr[mid] < target){
-                si = mid+1;
-            }else{
-                ei = mid-1;
+    public static boolean isSafe(char[][] board, int row, int col) {
+        // vertical check
+        for (int i = row - 1; i >= 0; i--) {
+            if (board[i][col] == 'Q') {
+                return false;
             }
         }
-        return -1;
 
+        // left upper diagonal
+        for (int i = row - 1, j = col - 1; i >= 0 && j >= 0; i--, j--) {
+            if (board[i][j] == 'Q') {
+                return false;
+            }
+        }
+
+        // right upper diagonal
+        for (int i = row - 1, j = col + 1; i >= 0 && j < board.length; i--, j++) {
+            if (board[i][j] == 'Q') {
+                return false;
+            }
+        }
+
+        return true;
 
     }
 
-    public static void main(String args[]) {
-        int[] arr = {2,4,8,17,20};
-        int target =1;
-        int Idx = binarySearch(arr, target);
-        System.out.println(Idx);
+    public static void NQueens(char[][] board, int row) {
+        // base case
+        if (row == board.length) {
+            printBoard(board);
+            return;
+        }
+        // column loop
+        for (int j = 0; j < board.length; j++) {
+            if (isSafe(board, row, j)) { // if true then put Q
+                board[row][j] = 'Q';
+                NQueens(board, row + 1);
+                board[row][j] = 'X';
+            }
+        }
+    }
 
+    public static void printBoard(char[][] board) {
+        System.out.println("-----------chess board-----------");
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board.length; j++) {
+                System.out.print(board[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+
+    public static void main(String[] args) {
+        int n = 4;
+        char[][] board = new char[n][n];
+        // initialize
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                board[i][j] = 'X';
+            }
+        }
+        NQueens(board, 0);
 
     }
+
 }
